@@ -36,12 +36,12 @@ function App() {
           Contact Me
         </a>
       </div>
-      <div className="flex  justify-evenly flex-wrap gap-10 mt-12 ">
+      <div className="flex  justify-evenly flex-wrap gap-10 mt-12 mx-10">
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9, ease: easeOut, delay: 0.2 }}
-          className="  flex flex-col items-center gap-[30px] 
+          className="  flex flex-col items-center gap-[30px] mt-10 mx-5 
           "
         >
           <img
@@ -97,18 +97,18 @@ function App() {
           initial={{ opacity: 0, scale: 0.8, y: 50 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.9, ease: "easeOut" }}
-          className="flex shadow-lg shadow-red-800 rounded-lg mx-auto  mt-5 h-120
+          className="flex shadow-lg shadow-red-800 rounded-lg mx-auto  mt-5  
           "
         >
           <img
-            className="  h-120  "
+            className="  h-100   "
             src=" /Images/image 17.png"
             alt="devloper-imgage"
           />
         </motion.div>
       </div>
 
-      <div>
+      <div className="mt-5">
         <div className="bg-black flex gap-1.5 flex-col  p-2">
           <h1 className="text-white text-2xl font-bold mx-5">IT BERRIES</h1>
           <div>
