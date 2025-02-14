@@ -3,7 +3,7 @@ import { useState } from "react";
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   return (
-    <div className="bg-gray-200  h-full">
+    <div className="bg-gray-200 w-full h-full">
       <div className="flex justify-evenly  gap-2.5 bg-black [&>*]:text-[1rem] h-12 [&>*]:my-auto fixed top-0 z-50 w-full ">
         <a
           className="text-white  p-2.5 hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-red-300 focus: rounded-lg font-bold focus:text-black"
@@ -41,7 +41,7 @@ function App() {
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9, ease: easeOut, delay: 0.2 }}
-          className=" p-20 flex flex-col items-center gap-[30px] w-150 
+          className=" p-20 flex flex-col items-center gap-[30px] 
           "
         >
           <img
