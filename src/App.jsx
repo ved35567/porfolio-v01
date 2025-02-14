@@ -36,12 +36,12 @@ function App() {
           Contact Me
         </a>
       </div>
-      <div className="flex  justify-evenly flex-wrap gap-10 mt-12">
+      <div className="flex  justify-evenly flex-wrap gap-10 mt-12 ">
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9, ease: easeOut, delay: 0.2 }}
-          className=" p-20 flex flex-col items-center gap-[30px] 
+          className="  flex flex-col items-center gap-[30px] 
           "
         >
           <img
