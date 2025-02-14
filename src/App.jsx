@@ -4,44 +4,44 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   return (
     <div className="bg-gray-200 w-full h-full">
-      <div className="flex justify-evenly  gap-2.5 bg-black [&>*]:text-[1rem] h-12 [&>*]:my-auto fixed top-0 z-50 w-full ">
+      <div className="flex justify-evenly items-center bg-black [&>*]:text-[1rem] h-12 [&>*]:my-auto fixed [&>*]:p-2 top-0 z-50 w-full ">
         <a
-          className="text-white  p-2.5 hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-red-300 focus: rounded-lg font-bold focus:text-black"
+          className="text-white   hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus:rounded-lg font-bold focus:text-black "
           href="#"
         >
           Home
         </a>
         <a
-          className="text-white text-2xl p-2.5 hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-red-300 focus: rounded-lg font-bold focus:text-black"
+          className="text-white text-2xl  hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus: rounded-lg font-bold focus:text-black"
           href="#about"
         >
           About me
         </a>
         <a
-          className="text-white p-2.5 hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-red-300 focus: rounded-lg font-bold focus:text-black"
+          className="text-white  hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus: rounded-lg font-bold focus:text-black"
           href="#skills"
         >
           Skills
         </a>
         <a
-          className="text-white p-2.5 hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-red-300 focus: rounded-lg font-bold focus:text-black"
+          className="text-white  hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus: rounded-lg font-bold focus:text-black"
           href="#portfolio"
         >
           Portfolio
         </a>
         <a
-          className="text-white p-2.5 hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-red-300 focus: rounded-lg font-bold focus:text-black"
+          className="text-white  hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus: rounded-lg font-bold focus:text-black"
           href="#contact"
         >
           Contact Me
         </a>
       </div>
-      <div className="flex  justify-evenly flex-wrap gap-10 mt-12 mx-10">
+      <div className="flex  justify-evenly items-center md:mx-10   lg:mx-32 xl:mx-60 2xl:mx-96   flex-wrap gap-5 mx-10 mt-12  max-w-4xl  ">
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9, ease: easeOut, delay: 0.2 }}
-          className="  flex flex-col items-center gap-[30px] mt-10 mx-5 
+          className="  flex flex-col items-center justify-center gap-[30px] mt-10 mx-5  
           "
         >
           <img
@@ -112,7 +112,7 @@ function App() {
         <div className="bg-black flex gap-1.5 flex-col  p-2">
           <h1 className="text-white text-2xl font-bold mx-5">IT BERRIES</h1>
           <div>
-            <p className="text-white text-[0.8rem] mx-5">
+            <p className="text-white text-[1rem] mx-5">
               Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem
               varius finibus. Sed ornare sit amet lorem sed viverra. In vel urna
               quis libero viverra facilisis ut ac est. Morbi commodo, eros in
@@ -141,10 +141,10 @@ function App() {
         >
           ABOUT ME
         </h1>
-        <p className="w-1/2 text-black  font-[Open Sans] text-[1rem]">
+        <p className=" text-black  font-[Open Sans] text-[1rem] mx-5 ">
           Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem
-          varius finibus. Sed ornare sit amet lorem sed viverra. In vel urna
-          quis libero viverra facilisis ut ac est.
+          varius finibus.<br></br> Sed ornare sit amet lorem sed viverra. In vel
+          urna quis libero viverra facilisis ut ac est.
         </p>
         <p className="font-bold">| EXPLORE |</p>
         <img
@@ -205,33 +205,34 @@ function App() {
           SKILLS
         </h3>
         <h3 className=" text-black font-bold font-[Montserrat] ">USING NOW:</h3>
-
-        <div className="flex justify-center flex-wrap mx-5    gap-10  ">
-          {[
-            "html",
-            "css",
-            "sass",
-            "js",
-            "react",
-            "bootstrap",
-            "git",
-            "mysql",
-          ].map((skill, index) => (
-            <motion.div
-              key={skill}
-              className=" flex-col items-center  "
-              whileInView={{ opacity: 1, scale: 1 }}
-              initial={{ opacity: 0, scale: 0.8 }}
-              transition={{
-                duration: 0.6,
-                ease: "easeOut",
-                delay: index * 0.1,
-              }}
-            >
-              <img src={`/Images/${skill}.svg`} alt="" />
-              <p className="text-center">{skill.toUpperCase()}</p>
-            </motion.div>
-          ))}
+        <div className="max-w-2xl">
+          <div className="flex justify-center flex-wrap mx-5    gap-10  ">
+            {[
+              "html",
+              "css",
+              "sass",
+              "js",
+              "react",
+              "bootstrap",
+              "git",
+              "mysql",
+            ].map((skill, index) => (
+              <motion.div
+                key={skill}
+                className=" flex-col items-center justify-center  "
+                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                transition={{
+                  duration: 0.6,
+                  ease: "easeOut",
+                  delay: index * 0.1,
+                }}
+              >
+                <img src={`/Images/${skill}.svg`} alt="" />
+                <p className="text-center">{skill.toUpperCase()}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
         <h3 className=" text-black font-bold font-[Montserrat] mt-5">
           LEARNING:
