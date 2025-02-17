@@ -2,6 +2,13 @@ import { motion, easeOut } from "motion/react";
 import { useState } from "react";
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [showMenu, setMenu] = useState(false);
+
+  const toggleMenu = () => {
+    setMenu((showMenu) => !showMenu);
+    console.log(showMenu);
+  };
+
   return (
     <div className="bg-gray-200 w-full h-full">
       <div className="flex justify-evenly items-center bg-black [&>*]:text-[1rem] h-12 [&>*]:my-auto fixed [&>*]:p-2 top-0 z-50 w-full ">
@@ -35,6 +42,10 @@ function App() {
         >
           Contact Me
         </a>
+
+        <button className="text-white  " onClick={toggleMenu}>
+          <span className="text-3xl  md:hidden  relative right-7">&#9776;</span>
+        </button>
       </div>
       <div className="flex  justify-evenly items-center md:mx-10   lg:mx-32 xl:mx-60 2xl:mx-96   flex-wrap gap-5 mx-10 mt-12  max-w-4xl  ">
         <motion.div
@@ -424,6 +435,31 @@ function App() {
             </form>
           </motion.div>
         </motion.div>
+      </div>
+      <div className="bg-black text-white mt-10 p-5">
+        {" "}
+        <a href="#">
+          <img className="mx-auto" src="Images/arrow.svg" alt="" />
+          <h3 className="text-center p-1">Back To Top</h3>
+        </a>
+        <div className="flex p-2 gap-8 justify-center items-center ">
+          <a href="">
+            <img src="Images/fb.svg" alt="facebook" />{" "}
+          </a>
+          <a href="">
+            <img src="Images/linkdin.svg" alt="Linkdin" />
+          </a>
+          <a href="">
+            <img src="Images/insta.svg" alt="instagram" />
+          </a>
+          <a href="">
+            {" "}
+            <img src="Images/mail.svg" alt="Email" />
+          </a>
+        </div>
+        <div className="flex justify-center items-center p-2">
+          <p className="font-[Nunito]">@2025 Vedvyas sahu All Right Reserved</p>
+        </div>
       </div>
     </div>
   );
