@@ -112,7 +112,7 @@ function App() {
           "
         >
           <img
-            className="  h-110   contrast-120 shadow-2xs saturate-110  "
+            className="  h-100   contrast-120 shadow-2xs   "
             src=" /Images/vedvyas.png"
             alt="devloper-imgage"
           />
