@@ -221,7 +221,7 @@ function App() {
             {[
               "html",
               "css",
-              "sass",
+              "tailwind-css",
               "js",
               "react",
               "bootstrap",
@@ -239,7 +239,11 @@ function App() {
                   delay: index * 0.1,
                 }}
               >
-                <img src={`/Images/${skill}.svg`} alt="" />
+                <img
+                  className="w-24 h-20 aspect-square"
+                  src={`/Images/${skill}.svg`}
+                  alt=""
+                />
                 <p className="text-center">{skill.toUpperCase()}</p>
               </motion.div>
             ))}
@@ -261,7 +265,11 @@ function App() {
                 delay: index * 0.1,
               }}
             >
-              <img src={`/Images/${skill}.png`} alt="" />
+              <img
+                className=" aspect-square"
+                src={`/Images/${skill}.png`}
+                alt=""
+              />
               <p className="text-center">{skill.toUpperCase()}</p>
             </motion.div>
           ))}
