@@ -43,11 +43,11 @@ function App() {
           Contact Me
         </a>
 
-        <button className="text-white  " onClick={toggleMenu}>
-          <span className="text-3xl  md:hidden  relative right-7">&#9776;</span>
-        </button>
+        {/* <button className="text-white  " onClick={toggleMenu}>
+          <span className="text-3xl  relative right-7">&#9776;</span>
+        </button> */}
       </div>
-      <div className="flex  justify-evenly items-center md:mx-10   lg:mx-32 xl:mx-60 2xl:mx-96   flex-wrap gap-5 mx-10 mt-12  max-w-4xl  ">
+      <div className="flex justify-evenly items-center mx-a md:mx-10   lg:mx-32 xl:mx-60  2xl:mx-80 flex-wrap gap-5   mx-10 mt-12  max-w-4xl ">
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -112,15 +112,15 @@ function App() {
           "
         >
           <img
-            className="  h-100   "
-            src=" /Images/image 17.png"
+            className="  h-110   contrast-120 shadow-2xs saturate-110  "
+            src=" /Images/vedvyas.png"
             alt="devloper-imgage"
           />
         </motion.div>
       </div>
 
-      <div className="mt-5">
-        <div className="bg-black flex gap-1.5 flex-col  p-2">
+      <div className="mt-20">
+        <div className="bg-black flex gap-1.5 flex-col  ">
           <h1 className="text-white text-2xl font-bold mx-5">IT BERRIES</h1>
           <div>
             <p className="text-white text-[1rem] mx-5">
@@ -148,7 +148,7 @@ function App() {
       >
         <h1
           className="text-black font-bold border-2 p-2 tracking-[5px] font-[Montserrat]
-          text-2xl"
+          text-2xl mt-14"
         >
           ABOUT ME
         </h1>
@@ -211,7 +211,7 @@ function App() {
       <div id="skills" className="flex flex-col  items-center gap-7  mt-20">
         <h3
           className="text-black font-bold border-2 p-2 tracking-[5px] font-[Montserrat]
-          text-2xl"
+          text-2xl mt-14"
         >
           SKILLS
         </h3>
@@ -288,12 +288,12 @@ function App() {
           ))}
         </div>
       </div>
-      <div id="portfolio" className="mt-10">
-        <div className=" bg-[url('/Images/bgportfolio.png')] bg-center bg-cover  flex justify-center  h-64">
+      <div id="portfolio" className="mt-24">
+        <div className=" bg-[url('/Images/bgportfolio.png')] bg-center bg-cover  flex justify-center items-center  h-64">
           <h1
             className="text-black font-bold border-2 p-2 tracking-[5px] font-[Montserrat] text-center  
           text-2xl  h-12
-              mt-25"
+              "
           >
             PORTFOLIO
           </h1>
@@ -349,7 +349,7 @@ function App() {
         <div className="flex flex-col items-center">
           <h3
             className="text-black font-bold border-2 p-2 tracking-[5px] font-[Montserrat]  text-center 
-          text-2xl"
+          text-2xl mt-14"
           >
             CONTACT
           </h3>
