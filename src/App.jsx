@@ -1,6 +1,8 @@
 import { motion, easeOut } from "motion/react";
 import { useState } from "react";
 function App() {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
   return (
     <div className="bg-gray-200 w-full h-full">
       <div className="flex justify-evenly items-center bg-black [&>*]:text-[1rem] h-12 [&>*]:my-auto fixed [&>*]:p-2 top-0 z-50 w-full ">
@@ -100,11 +102,11 @@ function App() {
           initial={{ opacity: 0, scale: 0.8, y: 50 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.9, ease: "easeOut" }}
-          className="flex shadow-lg rounded-lg mx-auto  mt-5  
+          className="flex shadow-lg rounded-lg mx-auto shadow-black  mt-5  
           "
         >
           <img
-            className="  h-100   brightness-50 shadow-2xs   "
+            className="  h-100  brightness-120   shadow-2xs   "
             src=" /Images/vedvyas.png"
             alt="devloper-imgage"
           />
