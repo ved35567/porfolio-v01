@@ -297,7 +297,7 @@ function App() {
         </div>
       </div>
       <div id="portfolio" className="mt-24">
-        <div className=" bg-[url('/Images/bgportfolio.png')] bg-center bg-cover  flex justify-center items-center  h-64">
+        {/* <div className=" bg-[url('/Images/bgportfolio.png')] bg-center bg-cover  flex justify-center items-center  h-64">
           <h1
             className="text-black font-bold border-2 p-2 tracking-[5px] font-[Montserrat] text-center  
           text-2xl  h-12
@@ -305,28 +305,47 @@ function App() {
           >
             PORTFOLIO
           </h1>
-        </div>
+        </div> */}
+        <motion.div
+          className="bg-[url('/Images/bgportfolio.png')] bg-center bg-cover flex justify-center items-center h-80 transition-transform duration-500 "
+          initial={{ opacity: 0, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.5 }} // Repeats animation when scrolled into view
+        >
+          <motion.h1
+            className="text-black font-bold border-2 p-2 tracking-[5px] font-[Montserrat] text-center text-2xl h-12"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: false, amount: 0.5 }} // Repeats animation every scroll
+          >
+            PORTFOLIO
+          </motion.h1>
+        </motion.div>
+
         <div className="bg-black p-5 ">
           <div className="flex justify-center flex-wrap items-center gap-20  text-white [&>*]:cursor-pointer   ">
-            <button
-              className="flex flex-col items-center justify-center focus:text-red-500 focus:font-bold  "
-              onClick={() => setSelectedCategory("All")}
-            >
-              All <span>________</span>{" "}
-            </button>
-            <button
-              onClick={() => setSelectedCategory("CODED")}
-              className="flex flex-col items-center justify-center  focus:text-red-500 focus:font-bold "
-            >
-              CODED <span>__________</span>{" "}
-            </button>
-            <button
-              onClick={() => setSelectedCategory("DESIGNED")}
-              className="flex flex-col items-center justify-center  focus:text-red-500 focus:font-bold "
-            >
-              {" "}
-              DESIGNED <span>_____________</span>
-            </button>
+            <div className="flex justify-center flex-wrap items-center gap-20 text-white [&>*]:cursor-pointer">
+              <button
+                className="flex flex-col items-center justify-center focus:text-red-500 focus:font-bold hover:text-blue-400 hover:scale-110 transition-transform duration-300"
+                onClick={() => setSelectedCategory("All")}
+              >
+                All <span>________</span>
+              </button>
+              <button
+                onClick={() => setSelectedCategory("CODED")}
+                className="flex flex-col items-center justify-center focus:text-red-500 focus:font-bold hover:text-blue-400 hover:scale-110 transition-transform duration-300"
+              >
+                CODED <span>__________</span>
+              </button>
+              <button
+                onClick={() => setSelectedCategory("DESIGNED")}
+                className="flex flex-col items-center justify-center focus:text-red-500 focus:font-bold hover:text-blue-400 hover:scale-110 transition-transform duration-300"
+              >
+                DESIGNED <span>_____________</span>
+              </button>
+            </div>
           </div>
         </div>
         <div className="h-90 border-4 border-blue-500 flex justify-center items-center">
@@ -444,31 +463,55 @@ function App() {
           </motion.div>
         </motion.div>
       </div>
-      <div className="bg-black text-white mt-10 p-5">
-        {" "}
+
+      <motion.div
+        className="bg-black text-white mt-10 p-5"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: false, amount: 0.2 }} // Re-animates on scroll
+      >
         <a href="#">
-          <img className="mx-auto" src="Images/arrow.svg" alt="" />
-          <h3 className="text-center p-1">Back To Top</h3>
+          <motion.img
+            className="mx-auto"
+            src="Images/arrow.svg"
+            alt=""
+            whileHover={{ scale: 1.2 }}
+            transition={{ duration: 0.3 }}
+          />
+          <motion.h3
+            className="text-center p-1 "
+            whileHover={{ scale: 0.9 }}
+            transition={{ duration: 0.3 }}
+          >
+            Back To Top
+          </motion.h3>
         </a>
-        <div className="flex p-2 gap-8 justify-center items-center ">
-          <a href="">
-            <img src="Images/fb.svg" alt="facebook" />{" "}
-          </a>
-          <a href="">
-            <img src="Images/linkdin.svg" alt="Linkdin" />
-          </a>
-          <a href="">
-            <img src="Images/insta.svg" alt="instagram" />
-          </a>
-          <a href="">
-            {" "}
-            <img src="Images/mail.svg" alt="Email" />
-          </a>
+
+        <div className="flex p-2 gap-8 justify-center items-center">
+          {[
+            { src: "Images/fb.svg", alt: "Facebook" },
+            { src: "Images/linkdin.svg", alt: "LinkedIn" },
+            { src: "Images/insta.svg", alt: "Instagram" },
+            { src: "Images/mail.svg", alt: "Email" },
+          ].map((icon, index) => (
+            <motion.a
+              key={index}
+              href=""
+              whileHover={{ scale: 1.2, rotate: 5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <img src={icon.src} alt={icon.alt} />
+            </motion.a>
+          ))}
         </div>
+
         <div className="flex justify-center items-center p-2">
-          <p className="font-[Nunito]">@2025 Vedvyas sahu All Right Reserved</p>
+          <p className="font-[Nunito]">
+            @2025 Vedvyas Sahu All Rights Reserved
+          </p>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
