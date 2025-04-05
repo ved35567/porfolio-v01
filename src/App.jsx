@@ -22,8 +22,12 @@ function App() {
         >
           <ul className=" block md:flex md:justify-center md:items-center [&>*]:text-[1rem]   [&>*]:p-2 [&>*]:text-center  gap-10  max-w-full font-black  ">
             <li>
-              <a onClick={handleClose} href="#">
-                Home <h1></h1>
+              <a
+                onClick={handleClose}
+                className="text-white   hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus: rounded-lg font-bold focus:text-black"
+                href="#"
+              >
+                Home
               </a>
             </li>
             <li>
@@ -285,9 +289,9 @@ function App() {
                 DESIGN
               </h4>
               <p className="">
-                I can design the site based on your needs and suggestions.
-                 I can also design the <br></br> site from scratch and consult
-                you during the job. l will work closely with you  to <br /> bring 
+                I can design the site based on your needs and suggestions. I can
+                also design the <br></br> site from scratch and consult you
+                during the job. l will work closely with you to <br /> bring
                 your vision to life with a focus on UX/UI best practices.
               </p>
             </div>
@@ -410,7 +414,6 @@ function App() {
       </div>
 
       <div id="portfolio" className="mt-24">
-        
         <motion.div
           className="bg-[url('/Images/bgportfolio.png')] bg-center bg-cover flex justify-center items-center h-80 transition-transform duration-500 "
           initial={{ opacity: 0, y: 0 }}
@@ -493,9 +496,9 @@ function App() {
               transition={{ duration: 1, ease: "easeOut" }} // Smooth animation
             >
               Got a project in mind or just want to connect? I m always open to
-              discussing new ideas, collaborations, or freelance <br /> opportunities.
-         Let build something great together — drop me a message and
-              I will get back to you as soon as possible!
+              discussing new ideas, collaborations, or freelance <br />{" "}
+              opportunities. Let build something great together — drop me a
+              message and I will get back to you as soon as possible!
             </motion.p>
             <img
               className="separator-black"
