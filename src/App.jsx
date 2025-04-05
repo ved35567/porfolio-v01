@@ -149,21 +149,14 @@ function App() {
 
       <div className="mt-20">
         <div className="bg-black flex gap-1.5 flex-col  ">
-          <h1 className="text-white text-2xl font-bold mx-5">IT BERRIES</h1>
+          <h1 className="text-white text-1xl font-bold mx-5">IT BERRIES</h1>
           <div>
             <p className="text-white text-[1rem] mx-5">
-              Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem
-              varius finibus. Sed ornare sit amet lorem sed viverra. In vel urna
-              quis libero viverra facilisis ut ac est. Morbi commodo, eros in
-              dignissim tempus, lacus odio rutrum augue, in semper sem magna
-              quis tellus.<br></br> Etiam enim erat, suscipit eu semper a,
-              dictum sit amet elit. Nunc egestas nisi eget enim gravida
-              facilisis. Pellentesque laoreet varius turpis vel pharetra. Ut
-              ante justo, consequat vitae elementum tempor, accumsan nec eros.{" "}
+            I specialize in building engaging and responsive web interfaces that blend performance with visual appeal. With a keen eye for design and a focus on usability, I turn ideas into sleek, functional websites that deliver real impact.
             </p>
           </div>
           <a href="">
-            <p className="text-white mx-5 ">|READ MORE|</p>
+            <p className="text-white mx-5  text-[12px]">|READ MORE|</p>
           </a>
         </div>
       </div>
@@ -180,10 +173,8 @@ function App() {
         >
           ABOUT ME
         </h1>
-        <p className=" text-black  font-[Open Sans] text-[1rem] mx-5 ">
-          Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem
-          varius finibus.<br></br> Sed ornare sit amet lorem sed viverra. In vel
-          urna quis libero viverra facilisis ut ac est.
+        <p className=" text-black  font-[Open Sans] text-[1rem] mx-5  ">
+        I am a passionate front-end developer with a strong eye for detail and a love for crafting clean, user-friendly interfaces. <br /> From wireframes to fully responsive websites, I bring ideas to life using modern tools and technologies. <br />I focus on performance, accessibility, and delivering seamless digital experiences that align with both user needs and business goals.
         </p>
         <p className="font-bold">| EXPLORE |</p>
         <img
@@ -207,7 +198,7 @@ function App() {
               <p className="">
                 I can design the site based on your needs and suggestions.
                 <br></br> I can also design the site from scratch and consult
-                you during the job.
+                you during the job. <br />l will work closely with you to bring your vision to life with a focus on UX/UI best practices.
               </p>
             </div>
             <div className="flex-col ">
@@ -215,18 +206,16 @@ function App() {
                 DEVELOPMENT
               </h4>
               <p>
-                I can design the site based on your needs and suggestions.
-                <br></br> I can also design the site from scratch and consult
-                you during the job.
+              I develop responsive, high-performance websites using modern frameworks <br /> like React, Tailwind CSS, and animation libraries like Framer Motion and GSAP. 
+                <br></br> My goal is to deliver code that’s clean, maintainable, and scalable.
               </p>
             </div>
           </div>
           <div className="flex flex-col items-center mx-5">
             <h4 className="font-[Montserrat] font-extrabold">MAINTENANCE</h4>
             <p className="about-content2 text[1rem]">
-              I can design the site based on your needs and suggestions.
-              <br></br> I can also design the site from scratch and consult you
-              during the job.
+            Need updates, bug fixes, or ongoing support ?  I offer reliable maintenance to ensure your site <br /> stays fresh, secure, and up-to-date 
+             so you can focus on your business while I handle the tech.
             </p>
           </div>
           <img
@@ -324,6 +313,7 @@ function App() {
           ))}
         </div>
       </div>
+      
       <div id="portfolio" className="mt-24">
         {/* <div className=" bg-[url('/Images/bgportfolio.png')] bg-center bg-cover  flex justify-center items-center  h-64">
           <h1
@@ -415,9 +405,8 @@ function App() {
               whileInView={{ opacity: 1, y: 0 }} // Fade in and move to normal position
               transition={{ duration: 1, ease: "easeOut" }} // Smooth animation
             >
-              Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem
-              varius finibus.<br></br> Sed ornare sit amet lorem sed viverra. In
-              vel urna quis libero viverra facilisis ut ac est.
+             Got a project in mind or just want to connect? I m always open to discussing new ideas, collaborations, or freelance opportunities.
+<br /> Let build something great together — drop me a message and I will get back to you as soon as possible!
             </motion.p>
             <img
               className="separator-black"
