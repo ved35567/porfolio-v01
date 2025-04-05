@@ -2,58 +2,78 @@ import { motion, easeOut } from "motion/react";
 import { useState } from "react";
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("All");
-const [isOpen,setOpen]=useState(false);
-const toggle=()=>{
-  setOpen(!isOpen)
-  console.log(isOpen);
-}
-  return (
-    <div className="bg-gray-200 w-full h-full">
-      <nav className=" flex items-center justify-center  h-12 gap-1.5 fixed  top-0 z-50 w-full  bg-black">
-      <div className={`${!isOpen? 'hidden':'block'} md:block`} >
-       
-       <ul className= {` block md:flex md:justify-evenly md:items-center [&>*]:text-[1rem] [&>*]:my-auto gap-3.5`}>
-        <li> <a
-          className="text-white   hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus:rounded-lg font-bold focus:text-black "
-          href="#"
-        >
-          Home
-        </a></li>
-       <li><a
-          className="text-white   hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus: rounded-lg font-bold focus:text-black"
-          href="#about"
-        >
-          About me
-        </a></li>
-        <li>
-        <a
-          className="text-white  hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus: rounded-lg font-bold focus:text-black"
-          href="#skills"
-        >
-          Skills
-        </a>
-        </li>
-        <li> <a
-          className="text-white  hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus: rounded-lg font-bold focus:text-black"
-          href="#portfolio"
-        >
-          Portfolio
-        </a></li>
-       <li><a
-          className="text-white  hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus: rounded-lg font-bold focus:text-black"
-          href="#contact"
-        >
-          Contact Me
-        </a></li>
-        
+  const [isOpen, setIsOpen] = useState(true);
 
-        {/* <button className="text-white  " onClick={toggleMenu}>
-          <span className="text-3xl  relative right-7">&#9776;</span>
-        </button> */}
-        </ul>
-        
-      </div>
-      <button className="text-white md:hidden flex justify-end" onClick={toggle}>&#9776;</button>
+  const handleClose = () => {
+    setIsOpen(true);
+  };
+  return (
+    <div className="bg-gray-200 w-full h-full ">
+      <nav className=" flex bg-black fixed  w-full z-50 top-0 gap-10 h-12 items-center justify-end   ">
+        {/* <h1 className="text-white relative mr-48 ml-10 w-0  md:hidden ">
+          MY Portfolio
+        </h1> */}
+        <div
+          className={` ${isOpen ? "hidden" : "block"} md:block   
+         mt-64 md:mt-0 bg-red-100 flex justify-center items-center bg-gradient-to-r text-black md:bg-black  w-full mx-10  border-2 
+          `}
+        >
+          <ul className=" block md:flex md:justify-center md:items-center [&>*]:text-[1rem]   [&>*]:p-2 [&>*]:text-center  gap-10  max-w-full font-black  ">
+            <li>
+              <a
+                onClick={handleClose}
+                className="md: text-white   hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus:rounded-lg font-bold focus:text-black  "
+                href="#"
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                onClick={handleClose}
+                className="text-white   hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus: rounded-lg font-bold focus:text-black"
+                href="#about"
+              >
+                About me
+              </a>
+            </li>
+            <li>
+              <a
+                onClick={handleClose}
+                className="text-white  hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus: rounded-lg font-bold focus:text-black"
+                href="#skills"
+              >
+                Skills
+              </a>
+            </li>
+            <li>
+              <a
+                onClick={handleClose}
+                className="text-white  hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus: rounded-lg font-bold focus:text-black"
+                href="#portfolio"
+              >
+                Portfolio
+              </a>
+            </li>
+            <li>
+              <a
+                onClick={handleClose}
+                className="text-white  hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus: rounded-lg font-bold focus:text-black"
+                href="#contact"
+              >
+                Contact Me
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <button
+          id="display"
+          className="md:hidden text-3xl  relative right-7 text-white cursor-pointer "
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          ☰
+        </button>
       </nav>
       <div className="flex justify-evenly items-center mx-a md:mx-10   lg:mx-32 xl:mx-60  2xl:mx-80 flex-wrap gap-5   mx-10 mt-12  max-w-4xl ">
         <motion.div
