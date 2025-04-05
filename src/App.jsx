@@ -2,45 +2,59 @@ import { motion, easeOut } from "motion/react";
 import { useState } from "react";
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("All");
-
+const [isOpen,setOpen]=useState(false);
+const toggle=()=>{
+  setOpen(!isOpen)
+  console.log(isOpen);
+}
   return (
     <div className="bg-gray-200 w-full h-full">
-      <div className="flex justify-evenly items-center bg-black [&>*]:text-[1rem] h-12 [&>*]:my-auto fixed [&>*]:p-2 top-0 z-50 w-full ">
-        <a
+      <nav className=" flex items-center justify-center  h-12 gap-1.5 fixed  top-0 z-50 w-full  bg-black">
+      <div className={`${!isOpen? 'hidden':'block'} md:block`} >
+       
+       <ul className= {` block md:flex md:justify-evenly md:items-center [&>*]:text-[1rem] [&>*]:my-auto gap-3.5`}>
+        <li> <a
           className="text-white   hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus:rounded-lg font-bold focus:text-black "
           href="#"
         >
           Home
-        </a>
-        <a
-          className="text-white text-2xl  hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus: rounded-lg font-bold focus:text-black"
+        </a></li>
+       <li><a
+          className="text-white   hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus: rounded-lg font-bold focus:text-black"
           href="#about"
         >
           About me
-        </a>
+        </a></li>
+        <li>
         <a
           className="text-white  hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus: rounded-lg font-bold focus:text-black"
           href="#skills"
         >
           Skills
         </a>
-        <a
+        </li>
+        <li> <a
           className="text-white  hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus: rounded-lg font-bold focus:text-black"
           href="#portfolio"
         >
           Portfolio
-        </a>
-        <a
+        </a></li>
+       <li><a
           className="text-white  hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus: rounded-lg font-bold focus:text-black"
           href="#contact"
         >
           Contact Me
-        </a>
+        </a></li>
+        
 
         {/* <button className="text-white  " onClick={toggleMenu}>
           <span className="text-3xl  relative right-7">&#9776;</span>
         </button> */}
+        </ul>
+        
       </div>
+      <button className="text-white md:hidden flex justify-end" onClick={toggle}>&#9776;</button>
+      </nav>
       <div className="flex justify-evenly items-center mx-a md:mx-10   lg:mx-32 xl:mx-60  2xl:mx-80 flex-wrap gap-5   mx-10 mt-12  max-w-4xl ">
         <motion.div
           initial={{ opacity: 0, x: -100 }}
