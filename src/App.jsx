@@ -20,12 +20,8 @@ function App() {
         >
           <ul className=" block md:flex md:justify-center md:items-center [&>*]:text-[1rem]   [&>*]:p-2 [&>*]:text-center  gap-10  max-w-full font-black  ">
             <li>
-              <a
-                onClick={handleClose}
-                className="md: text-white   hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus:rounded-lg font-bold focus:text-black  "
-                href="#"
-              >
-                Home
+              <a onClick={handleClose} href="#">
+                Home <h1></h1>
               </a>
             </li>
             <li>
