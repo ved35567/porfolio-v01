@@ -1,5 +1,6 @@
 import { motion, easeOut } from "motion/react";
 import { useState } from "react";
+
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [isOpen, setIsOpen] = useState(true);
@@ -16,15 +17,15 @@ function App() {
           alt="Logo"
         />
         <div
-          className={` ${isOpen ? "hidden" : "block"} md:block   
-         mt-64 md:mt-0 bg-red-100 flex justify-center items-center bg-gradient-to-r text-black md:bg-black  w-full mx-10  border-2 
+          className={` ${isOpen ? "hidden" : "block  "}  md:block   
+         mt-64 md:mt-0 bg-black flex justify-center items-center  text-black md:bg-black   w-full  border-2  absolute md:relative 
           `}
         >
-          <ul className=" block md:flex md:justify-center md:items-center [&>*]:text-[1rem]   [&>*]:p-2 [&>*]:text-center  gap-10  max-w-full font-black  ">
+          <ul className="  md:flex md:justify-center md:items-center [&>*]:text-[1rem]   [&>*]:p-2 [&>*]:text-center  gap-10   font-black  ">
             <li>
               <a
                 onClick={handleClose}
-                className="text-white   hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus: rounded-lg font-bold focus:text-black"
+                className=" md: text-white   hover:bg-white hover:text-black hover:font-bold hover:rounded-lg focus:bg-white focus: rounded-lg font-bold focus:text-black"
                 href="#"
               >
                 Home
