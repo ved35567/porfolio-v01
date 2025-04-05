@@ -109,7 +109,7 @@ function App() {
                 alt="email"
               />
             </a>
-            <a href="">
+            <a href="https://github.com/ved35567">
               <img
                 className="shadow-lg
                   shadow-black p-6  md:w-25 md:h-25 sm:w-20
@@ -118,7 +118,7 @@ function App() {
                 alt="github"
               />
             </a>
-            <a href="">
+            <a href="https://www.linkedin.com/in/vedvyas-sahu-838612328/">
               <img
                 className="shadow-lg
                   shadow-black p-6  md:w-25 md:h-25 sm:w-20
