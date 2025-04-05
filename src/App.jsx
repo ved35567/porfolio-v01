@@ -10,9 +10,7 @@ function App() {
   return (
     <div className="bg-gray-200 w-full h-full ">
       <nav className=" flex bg-black fixed  w-full z-50 top-0 gap-10 h-12 items-center justify-end   ">
-        {/* <h1 className="text-white relative mr-48 ml-10 w-0  md:hidden ">
-          MY Portfolio
-        </h1> */}
+        <img className="w-11  flex justify-start   md:hidden absolute left-0" src="/Images/logo.jpeg" alt="Logo" />
         <div
           className={` ${isOpen ? "hidden" : "block"} md:block   
          mt-64 md:mt-0 bg-red-100 flex justify-center items-center bg-gradient-to-r text-black md:bg-black  w-full mx-10  border-2 
@@ -84,20 +82,20 @@ function App() {
           "
         >
           <img
-            className=" hover:animate-spin"
+            className="md:w-16  sm:w-12 " 
             src="/Images/logo 1.png"
             alt="Logo"
           />
           <h4
-            className="text-4xl 
-            font-bold font-[Raleway] tracking-[5px] "
+            className="md:text-3xl 
+            font-bold font-[Raleway] tracking-[2px] "
           >
             Hi,I am
           </h4>
-          <h2 className="text-7xl font-bold font-[Raleway] tracking-[5px]">
+          <h2 className="md:text-6xl sm:text-4xl font-bold font-[Raleway] tracking-[5px] mt-[-10px]">
             Vedvyas
           </h2>
-          <p className="text-[1.5rem] font-[Raleway] mt-[-30px] tracking-wide text-[#d65959]">
+          <p className="md:text-4xl sm:text-3xl font-[Raleway] mt-[-30px] tracking-wide text-[#d65959]">
             Frond-end Developer
           </p>
 
@@ -105,7 +103,7 @@ function App() {
             <a href="">
               <img
                 className="shadow-lg
-                  shadow-black p-6 w-25 h-25
+                  shadow-black p-6  md:w-25 md:h-25 sm:w-20
                   "
                 src="/Images/mail.png"
                 alt="email"
@@ -114,7 +112,7 @@ function App() {
             <a href="">
               <img
                 className="shadow-lg
-                  shadow-black p-6 w-25 h-25
+                  shadow-black p-6  md:w-25 md:h-25 sm:w-20
                   "
                 src="/Images/github.png"
                 alt="github"
@@ -123,7 +121,7 @@ function App() {
             <a href="">
               <img
                 className="shadow-lg
-                  shadow-black p-6 w-25 h-25
+                  shadow-black p-6  md:w-25 md:h-25 sm:w-20
                   "
                 src="/Images/linkdin.png"
                 alt="linkdin"
@@ -140,7 +138,7 @@ function App() {
           "
         >
           <img
-            className="  h-100  brightness-120   shadow-2xs   "
+            className="  md:h-100  brightness-120   shadow-2xs   "
             src=" /Images/vedvyas.png"
             alt="devloper-imgage"
           />
