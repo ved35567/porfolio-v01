@@ -3,16 +3,18 @@ import { useState } from "react";
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [isOpen, setIsOpen] = useState(true);
-
+  const [showMore, setShowMore] = useState(false);
   const handleClose = () => {
     setIsOpen(true);
   };
   return (
     <div className="bg-gray-200 w-full h-full ">
       <nav className=" flex bg-black fixed  w-full z-50 top-0 gap-10 h-12 items-center justify-end   ">
-        {/* <h1 className="text-white relative mr-48 ml-10 w-0  md:hidden ">
-          MY Portfolio
-        </h1> */}
+        <img
+          className="w-11  flex justify-start   md:hidden absolute left-0"
+          src="/Images/logo.jpeg"
+          alt="Logo"
+        />
         <div
           className={` ${isOpen ? "hidden" : "block"} md:block   
          mt-64 md:mt-0 bg-red-100 flex justify-center items-center bg-gradient-to-r text-black md:bg-black  w-full mx-10  border-2 
@@ -80,20 +82,20 @@ function App() {
           "
         >
           <img
-            className=" hover:animate-spin"
+            className="md:w-16  sm:w-12 "
             src="/Images/logo 1.png"
             alt="Logo"
           />
           <h4
-            className="text-4xl 
-            font-bold font-[Raleway] tracking-[5px] "
+            className="md:text-3xl 
+            font-bold font-[Raleway] tracking-[2px] "
           >
             Hi,I am
           </h4>
-          <h2 className="text-7xl font-bold font-[Raleway] tracking-[5px]">
+          <h2 className="md:text-6xl sm:text-4xl font-bold font-[Raleway] tracking-[5px] mt-[-10px]">
             Vedvyas
           </h2>
-          <p className="text-[1.5rem] font-[Raleway] mt-[-30px] tracking-wide text-[#d65959]">
+          <p className="md:text-4xl sm:text-3xl font-[Raleway] mt-[-30px] tracking-wide text-[#d65959]">
             Frond-end Developer
           </p>
 
@@ -101,25 +103,25 @@ function App() {
             <a href="">
               <img
                 className="shadow-lg
-                  shadow-black p-6 w-25 h-25
+                  shadow-black p-6  md:w-25 md:h-25 sm:w-20
                   "
                 src="/Images/mail.png"
                 alt="email"
               />
             </a>
-            <a href="">
+            <a href="https://github.com/ved35567">
               <img
                 className="shadow-lg
-                  shadow-black p-6 w-25 h-25
+                  shadow-black p-6  md:w-25 md:h-25 sm:w-20
                   "
                 src="/Images/github.png"
                 alt="github"
               />
             </a>
-            <a href="">
+            <a href="https://www.linkedin.com/in/vedvyas-sahu-838612328/">
               <img
                 className="shadow-lg
-                  shadow-black p-6 w-25 h-25
+                  shadow-black p-6  md:w-25 md:h-25 sm:w-20
                   "
                 src="/Images/linkdin.png"
                 alt="linkdin"
@@ -136,7 +138,7 @@ function App() {
           "
         >
           <img
-            className="  h-100  brightness-120   shadow-2xs   "
+            className="  md:h-100  brightness-120   shadow-2xs   "
             src=" /Images/vedvyas.png"
             alt="devloper-imgage"
           />
@@ -145,23 +147,102 @@ function App() {
 
       <div className="mt-20">
         <div className="bg-black flex gap-1.5 flex-col  ">
-          <h1 className="text-white text-2xl font-bold mx-5">IT BERRIES</h1>
+          <h1 className="text-white text-1xl font-bold mx-5">IT BERRIES</h1>
           <div>
             <p className="text-white text-[1rem] mx-5">
-              Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem
-              varius finibus. Sed ornare sit amet lorem sed viverra. In vel urna
-              quis libero viverra facilisis ut ac est. Morbi commodo, eros in
-              dignissim tempus, lacus odio rutrum augue, in semper sem magna
-              quis tellus.<br></br> Etiam enim erat, suscipit eu semper a,
-              dictum sit amet elit. Nunc egestas nisi eget enim gravida
-              facilisis. Pellentesque laoreet varius turpis vel pharetra. Ut
-              ante justo, consequat vitae elementum tempor, accumsan nec eros.{" "}
+              I specialize in building engaging and responsive web interfaces
+              that blend performance with visual appeal. With a keen eye for
+              design and a focus on usability, I turn ideas into sleek,
+              functional websites that deliver real impact.
             </p>
           </div>
-          <a href="">
-            <p className="text-white mx-5 ">|READ MORE|</p>
-          </a>
+
+          <button
+            onClick={() => setShowMore(!showMore)}
+            className="text-blue-500 mx-5  text-left text-[12px] cursor-pointer "
+          >
+            |READ MORE|
+          </button>
         </div>
+        {showMore && (
+          //
+          <motion.div
+            className="mt-4 text-sm text-gray-700 z-30 w-full p-6 space-y-4  flex flex-col justify-start items-start drop-shadow-2xl rounded-lg bg-white max-h-[600px] overflow-y-auto "
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <p>
+              👋 <strong>Hello Again!</strong>
+              <br />
+              As a front-end developer, I’m passionate about creating seamless,
+              engaging, and responsive web experiences that not only look great
+              but function beautifully across all devices.
+            </p>
+
+            <p>
+              I believe the front-end is where creativity meets code — where
+              ideas come to life in the browser. Whether I’m building smooth
+              animations, intuitive interfaces, or clean layouts, I always keep
+              the user at the heart of every decision.
+            </p>
+
+            <p>
+              🧠 <strong>My Approach</strong>
+              <br />I focus on writing clean, modular, and maintainable code.
+              I’m a huge fan of component-based architecture, reusable UI
+              patterns, and performance optimization.
+            </p>
+
+            <ul className="list-disc pl-5 space-y-1">
+              <li>
+                🎯 Pixel-perfect implementation based on your designs or ideas
+              </li>
+              <li>
+                ⚙️ Reusable, maintainable code using React and component
+                libraries
+              </li>
+              <li>💡 Creative, user-centered design thinking</li>
+              <li>📱 Mobile-first and fully responsive layouts</li>
+              <li>
+                ⚡ Smooth interactions using animation tools like Framer Motion
+                & GSAP
+              </li>
+            </ul>
+
+            <p>
+              🔧 <strong>Tech Stack I Love</strong>
+            </p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>
+                <strong>Languages:</strong> HTML5, CSS3, JavaScript (ES6+)
+              </li>
+              <li>
+                <strong>Frameworks/Libraries:</strong> React.js, Tailwind CSS,
+                Framer Motion, GSAP
+              </li>
+              <li>
+                <strong>Design:</strong> Figma, Adobe XD
+              </li>
+              <li>
+                <strong>Tools:</strong> Git & GitHub, VS Code, Vite, npm/yarn
+              </li>
+              <li>
+                <strong>Workflow:</strong> Agile, component-driven,
+                version-controlled
+              </li>
+            </ul>
+
+            <p>
+              🤝 <strong>Let’s Build Together</strong>
+              <br />
+              I’m always excited to collaborate on new and exciting projects —
+              whether you’re launching something new or refreshing the old, I’d
+              love to help bring your vision to life!
+            </p>
+          </motion.div>
+        )}
       </div>
       <motion.div
         id="about"
@@ -176,10 +257,13 @@ function App() {
         >
           ABOUT ME
         </h1>
-        <p className=" text-black  font-[Open Sans] text-[1rem] mx-5 ">
-          Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem
-          varius finibus.<br></br> Sed ornare sit amet lorem sed viverra. In vel
-          urna quis libero viverra facilisis ut ac est.
+        <p className=" text-black  font-[Open Sans] text-[1rem] mx-5  ">
+          I am a passionate front-end developer with a strong eye for detail and
+          a love for crafting clean, user-friendly interfaces. <br /> From
+          wireframes to fully responsive websites, I bring ideas to life using
+          modern tools and technologies. I focus on <br /> performance,
+          accessibility, and delivering seamless digital experiences that align
+          with both user needs and business goals.
         </p>
         <p className="font-bold">| EXPLORE |</p>
         <img
@@ -196,14 +280,15 @@ function App() {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
         >
           <div className="flex flex-wrap justify-center gap-20 [&>*]:mx-5">
-            <div className="flex-col flex items-center  ">
+            <div className="flex-col flex  items-center  ">
               <h4 className="text-center font-[Montserrat] font-bold">
                 DESIGN
               </h4>
               <p className="">
                 I can design the site based on your needs and suggestions.
-                <br></br> I can also design the site from scratch and consult
-                you during the job.
+                 I can also design the <br></br> site from scratch and consult
+                you during the job. l will work closely with you  to <br /> bring 
+                your vision to life with a focus on UX/UI best practices.
               </p>
             </div>
             <div className="flex-col ">
@@ -211,18 +296,21 @@ function App() {
                 DEVELOPMENT
               </h4>
               <p>
-                I can design the site based on your needs and suggestions.
-                <br></br> I can also design the site from scratch and consult
-                you during the job.
+                I develop responsive, high-performance websites using modern
+                frameworks <br /> like React, Tailwind CSS,and animation
+                libraries like Framer Motion and GSAP.
+                <br></br> My goal is to deliver code that’s clean, maintainable,
+                and scalable.
               </p>
             </div>
           </div>
           <div className="flex flex-col items-center mx-5">
             <h4 className="font-[Montserrat] font-extrabold">MAINTENANCE</h4>
             <p className="about-content2 text[1rem]">
-              I can design the site based on your needs and suggestions.
-              <br></br> I can also design the site from scratch and consult you
-              during the job.
+              Need updates, bug fixes, or ongoing support ? I offer reliable
+              maintenance to ensure your site <br /> stays fresh, secure, and
+              up-to-date so you can focus on your business while I handle the
+              tech.
             </p>
           </div>
           <img
@@ -320,16 +408,9 @@ function App() {
           ))}
         </div>
       </div>
+
       <div id="portfolio" className="mt-24">
-        {/* <div className=" bg-[url('/Images/bgportfolio.png')] bg-center bg-cover  flex justify-center items-center  h-64">
-          <h1
-            className="text-black font-bold border-2 p-2 tracking-[5px] font-[Montserrat] text-center  
-          text-2xl  h-12
-              "
-          >
-            PORTFOLIO
-          </h1>
-        </div> */}
+        
         <motion.div
           className="bg-[url('/Images/bgportfolio.png')] bg-center bg-cover flex justify-center items-center h-80 transition-transform duration-500 "
           initial={{ opacity: 0, y: 0 }}
@@ -411,9 +492,10 @@ function App() {
               whileInView={{ opacity: 1, y: 0 }} // Fade in and move to normal position
               transition={{ duration: 1, ease: "easeOut" }} // Smooth animation
             >
-              Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem
-              varius finibus.<br></br> Sed ornare sit amet lorem sed viverra. In
-              vel urna quis libero viverra facilisis ut ac est.
+              Got a project in mind or just want to connect? I m always open to
+              discussing new ideas, collaborations, or freelance <br /> opportunities.
+         Let build something great together — drop me a message and
+              I will get back to you as soon as possible!
             </motion.p>
             <img
               className="separator-black"
