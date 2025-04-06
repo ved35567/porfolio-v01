@@ -1,10 +1,12 @@
 import { motion, easeOut } from "motion/react";
 import { useState } from "react";
-
+import ExplorePage from "./Explore";
+import { use } from "react";
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [isOpen, setIsOpen] = useState(true);
   const [showMore, setShowMore] = useState(false);
+  const [explore, setExplore] = useState(false);
   const handleClose = () => {
     setIsOpen(true);
   };
@@ -262,7 +264,7 @@ function App() {
         >
           ABOUT ME
         </h1>
-        <p className=" text-black  font-[Open Sans] text-[1rem] mx-5  ">
+        <p className=" text-black  font-[Open Sans] text-[1rem] mx-5 box-content ">
           I am a passionate front-end developer with a strong eye for detail and
           a love for crafting clean, user-friendly interfaces. <br /> From
           wireframes to fully responsive websites, I bring ideas to life using
@@ -270,7 +272,13 @@ function App() {
           accessibility, and delivering seamless digital experiences that align
           with both user needs and business goals.
         </p>
-        <p className="font-bold">| EXPLORE |</p>
+        <button
+          className="font-bold text-blue-500 cursor-pointer"
+          onClick={() => setExplore(!explore)}
+        >
+          | EXPLORE |
+        </button>
+        {explore && <ExplorePage></ExplorePage>}
         <img
           className="mt-10"
           src="/Images/separatorBlack 1.png"
