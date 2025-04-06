@@ -12,7 +12,7 @@ function App() {
   };
   return (
     <div className="bg-gray-200 w-full h-full ">
-      <nav className=" flex bg-black fixed  w-full z-50 top-0 gap-10 h-12 items-center justify-end   ">
+      <nav className=" flex bg-black fixed shadow-2xl shadow-red-300 w-full z-50 top-0 gap-10 h-12 items-center justify-end   ">
         <img
           className="w-11  flex justify-start   md:hidden absolute left-0"
           src="/Images/logo.jpeg"
@@ -531,12 +531,14 @@ function App() {
           >
             <form
               className=" flex flex-col items-center justify-center  gap-5"
-              action="#"
+              action="https://formsubmit.co/vedvyassahu2001@gmail.com "
+              method="POST"
             >
               {/* Name Input */}
               <motion.input
                 className="border-l-2 w-80 border-b-2 p-2"
                 type="text"
+                name="username"
                 required
                 placeholder="ENTER YOUR NAME*"
                 whileFocus={{ scale: 1.02 }}
@@ -546,6 +548,7 @@ function App() {
               <motion.input
                 className="border-l-2 w-80 border-b-2 p-2"
                 type="email"
+                name="email"
                 required
                 placeholder="ENTER YOUR EMAIL*"
                 whileFocus={{ scale: 1.02 }}
@@ -555,6 +558,7 @@ function App() {
               <motion.input
                 className="border-l-2 border-b-2 p-2 w-80"
                 type="tel"
+                name="phone"
                 placeholder="PHONE NUMBER"
                 whileFocus={{ scale: 1.02 }}
               />
@@ -563,6 +567,7 @@ function App() {
               <motion.textarea
                 className="border-l-2 border-b-2 w-80 "
                 required
+                name="message"
                 placeholder="YOUR MESSAGE*"
                 rows="4"
                 whileFocus={{ scale: 1.02 }}

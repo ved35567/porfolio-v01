@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const ExplorePage = () => {
   return (
     <motion.div
-      className="p-6 max-w-4xl mx-auto max-h-[1000px] overflow-y-auto box-content shadow-2xl shadow-gray-500  border-2 rounded-md "
+      className="p-6 max-w-4xl mx-auto max-h-[1000px] overflow-y-auto box-border  shadow-2xl shadow-gray-500  border-2 rounded-md "
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
