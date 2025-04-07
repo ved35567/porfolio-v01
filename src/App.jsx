@@ -1,7 +1,7 @@
 import { motion, easeOut } from "motion/react";
 import { useState } from "react";
 import ExplorePage from "./Explore";
-import { use } from "react";
+
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [isOpen, setIsOpen] = useState(true);
