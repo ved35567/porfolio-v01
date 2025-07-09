@@ -47,26 +47,28 @@ const Skills = () => {
         LEARNING:
       </h3>
       <div className="flex justify-center flex-wrap mx-5  gap-10   ">
-        {["nodejs", "mongodb", "figma"].map((skill, index) => (
-          <motion.div
-            key={skill}
-            className=" flex-col items-center  "
-            whileInView={{ opacity: 1, scale: 1 }}
-            initial={{ opacity: 0, scale: 0.8 }}
-            transition={{
-              duration: 0.6,
-              ease: "easeOut",
-              delay: index * 0.1,
-            }}
-          >
-            <img
-              className=" aspect-square"
-              src={`/Images/${skill}.png`}
-              alt=""
-            />
-            <p className="text-center">{skill.toUpperCase()}</p>
-          </motion.div>
-        ))}
+        {["nodejs", "express Js", "mongodb", "figma", "nextJs"].map(
+          (skill, index) => (
+            <motion.div
+              key={skill}
+              className=" flex-col items-center  "
+              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+                delay: index * 0.1,
+              }}
+            >
+              <img
+                className=" aspect-square w-22 "
+                src={`/Images/${skill}.png`}
+                alt=""
+              />
+              <p className="text-center">{skill.toUpperCase()}</p>
+            </motion.div>
+          )
+        )}
       </div>
       <h3 className=" text-black font-bold font-[Montserrat] mt-5">
         OTHER SKILLS:

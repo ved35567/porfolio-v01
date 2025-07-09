@@ -26,7 +26,7 @@ const Profile = () => {
             Vedvyas
           </h2>
           <p className="md:text-4xl sm:text-3xl font-[Raleway] mt-[-30px] tracking-wide text-[#d65959]">
-            Frond-end Developer
+            Front-end Developer
           </p>
 
           <div className="flex gap-6 ">
