@@ -11,19 +11,22 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://backend-portfolio-v01.onrender.com/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json", // ❌ FIXED typo: 'application-json' ➤ 'application/json'
-        },
-        body: JSON.stringify(formData), // ❌ FIXED typo: json.strigify ➤ JSON.stringify
-      });
+      const response = await fetch(
+        "https://backend-portfolio-v01.onrender.com/api/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const data = await response.json();
 
       if (response.ok) {
         alert("✅ Login successful!");
-        // You can save token if you return one: localStorage.setItem("token", data.token)
+        localStorage.setItem("token", data.token);
       } else {
         alert(`❌ Login failed: ${data.msg || "Invalid credentials"}`);
       }
@@ -42,7 +45,10 @@ const Login = () => {
 
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700"
+            >
               Email
             </label>
             <input
@@ -58,7 +64,10 @@ const Login = () => {
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700"
+            >
               Password
             </label>
             <input
