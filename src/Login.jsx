@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -7,10 +7,30 @@ const Login = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // handle login logic here
-    console.log("Logging in:", formData);
+
+    try {
+      const response = await fetch("https://backend-portfolio-v01.onrender.com/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json", // ❌ FIXED typo: 'application-json' ➤ 'application/json'
+        },
+        body: JSON.stringify(formData), // ❌ FIXED typo: json.strigify ➤ JSON.stringify
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("✅ Login successful!");
+        // You can save token if you return one: localStorage.setItem("token", data.token)
+      } else {
+        alert(`❌ Login failed: ${data.msg || "Invalid credentials"}`);
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      alert("❌ Error connecting to server.");
+    }
   };
 
   return (
