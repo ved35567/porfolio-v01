@@ -1,14 +1,15 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion"; // Fixed import
+
 const Contact = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone_no: "",
     message: "",
   });
-
-  const [statusMessage, setStatusMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -31,8 +32,7 @@ const Contact = () => {
 
       const data = await response.json();
       if (response.ok) {
-        setStatusMessage("✅ Thank you! Your message has been submitted.");
-        setFormData({ name: "", email: "", phone_no: "", message: "" }); // reset form
+        navigate("/thank-you", { replace: true });
       } else {
         setStatusMessage(`❌ ${data.message || "Something went wrong."}`);
       }
@@ -139,13 +139,6 @@ const Contact = () => {
             >
               | SUBMIT |
             </motion.button>
-
-            {/* ✅ Status Message */}
-            {statusMessage && (
-              <p className="mt-4 text-green-600 font-medium text-center max-w-xs">
-                {statusMessage}
-              </p>
-            )}
           </form>
         </motion.div>
       </motion.div>
