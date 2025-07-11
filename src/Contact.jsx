@@ -10,7 +10,7 @@ const Contact = () => {
     phone_no: "",
     message: "",
   });
-  const [status,setStatusMessage]=useState('')
+  const [setStatusMessage]=useState('')
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -37,7 +37,7 @@ const Contact = () => {
       } else {
         setStatusMessage(`❌ ${data.message || "Something went wrong."}`);
       }
-    } catch (err) {
+    } catch {
       setStatusMessage("❌ Server error. Please try again later.");
     }
   };

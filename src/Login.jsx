@@ -27,6 +27,8 @@ const Login = () => {
       if (response.ok) {
         alert("✅ Login successful!");
         localStorage.setItem("token", data.token);
+        
+      window.location.replace("/admin/dashboard");
       } else {
         alert(`❌ Login failed: ${data.msg || "Invalid credentials"}`);
       }
