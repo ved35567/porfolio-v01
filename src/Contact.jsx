@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion"; // Fixed import
 
@@ -10,6 +10,7 @@ const Contact = () => {
     phone_no: "",
     message: "",
   });
+  const [status,setStatusMessage]=useState('')
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
