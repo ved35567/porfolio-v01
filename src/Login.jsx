@@ -12,7 +12,7 @@ const Login = () => {
 
     try {
       const response = await fetch(
-        "https://backend-portfolio-v01.onrender.com/api/login",
+        "http://localhost:3000/api/login",
         {
           method: "POST",
           headers: {
@@ -33,6 +33,7 @@ const Login = () => {
         alert(`❌ Login failed: ${data.msg || "Invalid credentials"}`);
       }
     } catch (error) {
+      console.log(error,"----pppp")
       console.error("Login error:", error);
       alert("❌ Error connecting to server.");
     }

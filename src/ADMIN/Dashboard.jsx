@@ -25,7 +25,7 @@ const AdminDashboard = () => {
           </p>
         </div>
         <div>
-            <SingleImageUpload></SingleImageUpload>
+            <SingleImageUpload/>
         </div>
       </div>
     </div>
