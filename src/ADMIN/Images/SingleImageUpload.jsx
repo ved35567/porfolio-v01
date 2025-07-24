@@ -1,28 +1,30 @@
-import  { useState } from "react";
+import { useState } from "react";
 
-const SingleImageUpload = () => {
-  const [image, setImage] = useState(null);
+const MultiImageUpload = () => {
+  const [images, setImages] = useState([]);
   const [category, setCategory] = useState("");
-  const [preview, setPreview] = useState(null);
+  const [previews, setPreviews] = useState([]);
   const [uploading, setUploading] = useState(false);
 
   const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    console.log(file,"------------p")
-    setImage(file);
-    setPreview(URL.createObjectURL(file));
+    const files = Array.from(e.target.files);
+    setImages(files);
+    const previewUrls = files.map((file) => URL.createObjectURL(file));
+    setPreviews(previewUrls);
   };
 
   const handleUpload = async (e) => {
     e.preventDefault();
-console.log(image);
-    if (!image || !category) {
-      alert("Please select an image and enter a category");
+
+    if (images.length === 0 || !category) {
+      alert("Please select images and enter a category");
       return;
     }
 
     const formData = new FormData();
-    formData.append("image", image); // must match backend field name
+    images.forEach((img, index) => {
+      formData.append("image", img); // field name = 'images' in backend
+    });
     formData.append("category", category);
 
     setUploading(true);
@@ -34,11 +36,11 @@ console.log(image);
 
       const data = await res.json();
       if (res.ok) {
-        console.log(data.msg);
-        // alert("✅ Image uploaded successfully");
-        setImage(null);
+        console.log(data.msg || data);
+        alert("✅ Images uploaded successfully");
+        setImages([]);
         setCategory("");
-        setPreview(null);
+        setPreviews([]);
       } else {
         alert(`❌ Upload failed: ${data.error}`);
         console.error(data.detail);
@@ -54,40 +56,50 @@ console.log(image);
   return (
     <div className="min-h-screen bg-gray-100 p-6 flex items-center justify-center">
       <div className="w-full max-w-md bg-white shadow-xl rounded-lg p-6">
-        <h2 className="text-2xl font-bold text-center mb-4">Upload a Single Image</h2>
-<form onSubmit={handleUpload}>
-        <input
-          type="text"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          placeholder="Enter image category"
-          className="w-full p-2 mb-4 border rounded"
-        />
+        <h2 className="text-2xl font-bold text-center mb-4">
+          Upload Multiple Images
+        </h2>
+        <form onSubmit={handleUpload}>
+          <input
+            type="text"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            placeholder="Enter category"
+            className="w-full p-2 mb-4 border rounded"
+          />
 
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleFileChange}
-          className="w-full mb-4"
-        />
+          <input
+            type="file"
+            accept="image/*"
+            multiple
+            onChange={handleFileChange}
+            className="w-full mb-4"
+          />
 
-        {preview && (
-          <div className="mb-4">
-            <img src={preview} alt="Preview" className="w-40 h-40 object-cover rounded border" />
-          </div>
-        )}
+          {previews.length > 0 && (
+            <div className="flex flex-wrap gap-3 mb-4">
+              {previews.map((src, index) => (
+                <img
+                  key={index}
+                  src={src}
+                  alt={`Preview ${index}`}
+                  className="w-24 h-24 object-cover rounded border"
+                />
+              ))}
+            </div>
+          )}
 
-        <button type="submit"
-          
-          disabled={uploading}
-          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded transition"
-        >
-          {uploading ? "Uploading..." : "Upload"}
-        </button>
+          <button
+            type="submit"
+            disabled={uploading}
+            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded transition"
+          >
+            {uploading ? "Uploading..." : "Upload"}
+          </button>
         </form>
       </div>
     </div>
   );
 };
 
-export default SingleImageUpload;
+export default MultiImageUpload;

@@ -1,6 +1,30 @@
+import { motion } from "motion/react"; // Correct import for motion
+import { img } from "motion/react-client";
+import { useEffect, useState } from "react";
 
-import { motion} from "motion/react";
 const Skills = () => {
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch("http://localhost:3000/api/image", {
+          method: "GET",
+        });
+        const data = await res.json();
+        setImages(data); // Set the fetched images in state
+      } catch (error) {
+        console.error("error fetching image", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const usingImages = images.filter((img) => img.category === "using");
+  const usingImg = images.filter((img) => img.category === "learning");
+  const otherImg = images.filter((img) => img.category === "other skills");
+
   return (
     <>
       <h3
@@ -12,18 +36,9 @@ const Skills = () => {
       <h3 className=" text-black font-bold font-[Montserrat] ">USING NOW:</h3>
       <div>
         <div className="flex justify-center flex-wrap mx-5    gap-10  ">
-          {[
-            "html",
-            "css",
-            "tailwind-css",
-            "js",
-            "react",
-            "bootstrap",
-            "git",
-            "mysql",
-          ].map((skill, index) => (
+          {usingImages.map((img, index) => (
             <motion.div
-              key={skill}
+              key={img._id || index}
               className=" flex-col items-center justify-center  "
               whileInView={{ opacity: 1, scale: 1 }}
               initial={{ opacity: 0, scale: 0.8 }}
@@ -33,12 +48,10 @@ const Skills = () => {
                 delay: index * 0.1,
               }}
             >
-              <img
-                className="w-24 h-20 aspect-square"
-                src={`/Images/${skill}.svg`}
-                alt=""
-              />
-              <p className="text-center">{skill.toUpperCase()}</p>
+              <img className="w-20 aspect-square" src={img.url} alt="" />
+              <p className="text-center">
+                {img.name.split(".")[0].toUpperCase()}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -47,36 +60,9 @@ const Skills = () => {
         LEARNING:
       </h3>
       <div className="flex justify-center flex-wrap mx-5  gap-10   ">
-        {["nodejs", "express Js", "mongodb", "figma", "nextJs"].map(
-          (skill, index) => (
-            <motion.div
-              key={skill}
-              className=" flex-col items-center  "
-              whileInView={{ opacity: 1, scale: 1 }}
-              initial={{ opacity: 0, scale: 0.8 }}
-              transition={{
-                duration: 0.6,
-                ease: "easeOut",
-                delay: index * 0.1,
-              }}
-            >
-              <img
-                className=" aspect-square w-22 "
-                src={`/Images/${skill}.png`}
-                alt=""
-              />
-              <p className="text-center">{skill.toUpperCase()}</p>
-            </motion.div>
-          )
-        )}
-      </div>
-      <h3 className=" text-black font-bold font-[Montserrat] mt-5">
-        OTHER SKILLS:
-      </h3>
-      <div className="flex justify-center flex-wrap mx-5  gap-10  ">
-        {["c++", "c"].map((skill, index) => (
+        {usingImg.map((img, index) => (
           <motion.div
-            key={skill}
+            key={img._id || index}
             className=" flex-col items-center  "
             whileInView={{ opacity: 1, scale: 1 }}
             initial={{ opacity: 0, scale: 0.8 }}
@@ -86,8 +72,33 @@ const Skills = () => {
               delay: index * 0.1,
             }}
           >
-            <img src={`/Images/${skill}.svg`} alt="" />
-            <p className="text-center">{skill.toUpperCase()}</p>
+            <img className=" aspect-square w-20 " src={img.url} alt="" />
+            <p className="text-center">
+              {img.name.split(".")[0].toUpperCase()}
+            </p>
+          </motion.div>
+        ))}
+      </div>
+      <h3 className=" text-black font-bold font-[Montserrat] mt-5">
+        OTHER SKILLS:
+      </h3>
+      <div className="flex justify-center flex-wrap mx-5  gap-10  ">
+        {otherImg.map((img, index) => (
+          <motion.div
+            key={img._id || index}
+            className=" flex-col items-center  "
+            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+              delay: index * 0.1,
+            }}
+          >
+            <img className="aspect-square w-20 " src={img.url} alt="" />
+            <p className="text-center">
+              {img.name.split(".")[0].toUpperCase()}
+            </p>
           </motion.div>
         ))}
       </div>

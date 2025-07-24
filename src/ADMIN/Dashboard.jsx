@@ -1,35 +1,46 @@
-import SingleImageUpload from "./Images/SingleImageUpload";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 
-const AdminDashboard = () => {
+const Dashboard = () => {
+  const navigate = useNavigate();
+
   const handleLogout = () => {
-    localStorage.removeItem("token"); // Or your auth key
-    window.location.href = "/login"; // Redirect to login
+    localStorage.removeItem("token"); // if using JWT
+    navigate("/admin/login");
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-gray-100 to-gray-300 p-6">
-      <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-xl p-8">
-        <div className="flex justify-between items-center mb-6 border-b pb-4">
-          <h1 className="text-3xl font-bold text-gray-800">Admin Dashboard</h1>
-          <button
-            onClick={handleLogout}
-            className="bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-lg shadow"
-          >
-            Logout
-          </button>
-        </div>
+    <div className="min-h-screen flex bg-gray-100">
+      {/* Sidebar */}
+      <aside className="w-64 bg-white shadow-lg p-6 space-y-6">
+        <h2 className="text-2xl font-bold text-indigo-600">Dashboard</h2>
+        <nav className="space-y-2">
+          <Link to="upload" className="block p-2 rounded hover:bg-indigo-100">
+            📤 Upload Image
+          </Link>
+          <Link to="profile" className="block p-2 rounded hover:bg-indigo-100">
+            👤 Profile
+          </Link>
+          <Link to="contact" className="block p-2 rounded hover:bg-indigo-100">
+            📧 Contact User
+          </Link>
+          <Link to="delete" className="block p-2 rounded hover:bg-indigo-100">
+            🗑️ Delete Images
+          </Link>
+        </nav>
+        <button
+          onClick={handleLogout}
+          className="mt-4 w-full bg-red-500 text-white font-bold py-2 rounded hover:bg-red-600"
+        >
+          🔓 Logout
+        </button>
+      </aside>
 
-        <div className="mt-10 text-gray-700">
-          <p className="text-lg">
-            👋 Welcome, Admin! This is your dashboard where you can manage content and monitor activity.
-          </p>
-        </div>
-        <div>
-            <SingleImageUpload/>
-        </div>
-      </div>
+      {/* Main Content */}
+      <main className="flex-1 p-6">
+        <Outlet />
+      </main>
     </div>
   );
 };
 
-export default AdminDashboard;
+export default Dashboard;
