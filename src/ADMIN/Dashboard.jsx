@@ -14,11 +14,17 @@ const Dashboard = () => {
       <aside className="w-64 bg-white shadow-lg p-6 space-y-6">
         <h2 className="text-2xl font-bold text-indigo-600">Dashboard</h2>
         <nav className="space-y-2">
+          <Link to="profile" className="block p-2 rounded hover:bg-indigo-100">
+            👤 My Profile
+          </Link>
           <Link to="upload" className="block p-2 rounded hover:bg-indigo-100">
             📤 Upload Image
           </Link>
-          <Link to="profile" className="block p-2 rounded hover:bg-indigo-100">
-            👤 Profile
+          <Link
+            to="update-profile"
+            className="block p-2 rounded hover:bg-indigo-100"
+          >
+            👤 Update Profile
           </Link>
           <Link to="contact" className="block p-2 rounded hover:bg-indigo-100">
             📧 Contact User

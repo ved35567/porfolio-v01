@@ -11,29 +11,27 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(
-        "http://localhost:3000/api/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch("http://localhost:3000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+        credentials: "include", // ✅ VERY IMPORTANT
+      });
 
       const data = await response.json();
 
       if (response.ok) {
         alert("✅ Login successful!");
         localStorage.setItem("token", data.token);
-        
-      window.location.replace("/admin/dashboard");
+
+        window.location.replace("/admin/dashboard");
       } else {
         alert(`❌ Login failed: ${data.msg || "Invalid credentials"}`);
       }
     } catch (error) {
-      console.log(error,"----pppp")
+      console.log(error, "----pppp");
       console.error("Login error:", error);
       alert("❌ Error connecting to server.");
     }

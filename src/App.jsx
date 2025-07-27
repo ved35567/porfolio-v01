@@ -5,8 +5,9 @@ import RequireAuth from "./ADMIN/ProtectedRoute/RequireAuth";
 import AdminDashboard from "./ADMIN/Dashboard";
 import { Routes, Route } from "react-router-dom";
 import MultiImageUpload from "./ADMIN/Images/SingleImageUpload";
-import UserProfile from "./ADMIN/UserProfile";
+import UpdateProfile from "./ADMIN/UpdateProfile";
 import ContactedUsers from "./ContactUser";
+import UserProfile from "./ADMIN/UserProfile";
 
 function App() {
   return (
@@ -23,8 +24,9 @@ function App() {
         }
       >
         {/* Nested route: goes into <Outlet /> inside AdminDashboard */}
-        <Route path="upload" element={<MultiImageUpload />} />
         <Route path="profile" element={<UserProfile />} />
+        <Route path="upload" element={<MultiImageUpload />} />
+        <Route path="update-profile" element={<UpdateProfile />} />
         <Route path="contact" element={<ContactedUsers />} />
       </Route>
       <Route path="/thank-you" element={<ThankYou />} />

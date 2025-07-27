@@ -8,10 +8,12 @@ const ContactedUsers = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/users"); // Change to your actual route
+        const res = await fetch("http://localhost:3000/api/users", {
+          method: "GET",
+        }); // Change to your actual route
         const data = await res.json();
         if (res.ok) {
-          setUsers(data);
+          setUsers(data.user);
         } else {
           setError(data.message || "Something went wrong");
         }
@@ -39,30 +41,33 @@ const ContactedUsers = () => {
         <table className="min-w-full text-sm text-gray-800">
           <thead className="bg-indigo-600 text-white text-left">
             <tr>
+              <th className="px-6 py-3">S_NO</th>
               <th className="px-6 py-3">Name</th>
               <th className="px-6 py-3">Email</th>
+              <th className="px-6 py-3">Phone-NO</th>
               <th className="px-6 py-3">Message</th>
               <th className="px-6 py-3">Date</th>
             </tr>
           </thead>
           <tbody>
-            {users.map((user, i) => (
-              <tr
-                key={i}
-                className={`border-b hover:bg-indigo-50 transition duration-200 ${
-                  i % 2 === 0 ? "bg-white" : "bg-gray-50"
-                }`}
-              >
-                <td className="px-6 py-4">{user.name}</td>
-                <td className="px-6 py-4">{user.email}</td>
-                <td className="px-6 py-4 max-w-xs truncate">
-                  {user.message || "-"}
-                </td>
-                <td className="px-6 py-4">
-                  {new Date(user.createdAt).toLocaleDateString()}
+            {users.length === 0 ? (
+              <tr>
+                <td className="p-4 text-gray-500" colSpan={4}>
+                  No users found
                 </td>
               </tr>
-            ))}
+            ) : (
+              users.map((user, index) => (
+                <tr key={user._id} className="hover:bg-gray-50">
+                  <td className="px-4 py-2 border-b">{index + 1}</td>
+                  <td className="px-4 py-2 border-b">{user.name}</td>
+                  <td className="px-4 py-2 border-b">{user.email}</td>
+                  <td className="px-4 py-2 border-b">{user.phone_no}</td>
+                  <td className="px-4 py-2 border-b">{user.message}</td>
+                  <td className="px-4 py-2 border-b">{user.submittedAt}</td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>

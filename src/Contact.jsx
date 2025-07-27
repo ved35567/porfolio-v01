@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion"; // Fixed import
 
@@ -10,7 +10,7 @@ const Contact = () => {
     phone_no: "",
     message: "",
   });
-  const [setStatusMessage]=useState('')
+  const [setStatusMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,16 +20,13 @@ const Contact = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch(
-        "https://backend-portfolio-v01.onrender.com/api/contact",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch("http://localhost:3000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       const data = await response.json();
       if (response.ok) {
