@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion"; // Fixed import
+import { motion } from "framer-motion"; 
 
 const Contact = () => {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const Contact = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/api/contact", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

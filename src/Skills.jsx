@@ -1,5 +1,5 @@
 import { motion } from "motion/react"; // Correct import for motion
-import { img } from "motion/react-client";
+
 import { useEffect, useState } from "react";
 
 const Skills = () => {
@@ -8,7 +8,7 @@ const Skills = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/image", {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/image`, {
           method: "GET",
         });
         const data = await res.json();

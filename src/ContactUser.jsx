@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 
 const ContactedUsers = () => {
   const [users, setUsers] = useState([]);
@@ -8,7 +8,7 @@ const ContactedUsers = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/users", {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/users`, {
           method: "GET",
         }); // Change to your actual route
         const data = await res.json();

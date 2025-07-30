@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 
 const UserProfile = () => {
   const [user, setUser] = useState(null);
@@ -6,7 +6,7 @@ const UserProfile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch("http://localhost:3000/upload/me", {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/upload/me`, {
           method: "GET",
           credentials: "include", // ✅ This is important to send cookies
         });

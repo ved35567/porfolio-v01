@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { motion, easeOut } from "framer-motion";
 
 const Profile = () => {
@@ -7,7 +7,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/profile", {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/profile`, {
           method: "GET",
         });
 

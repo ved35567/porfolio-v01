@@ -27,7 +27,7 @@ const UpdateProfile = () => {
           email: data.email || "",
           profileImage: data.profileImage || "",
         }));
-        setPreview(profileImage);
+        setPreview();
       } catch (err) {
         console.error("Failed to load profile", err);
       }
