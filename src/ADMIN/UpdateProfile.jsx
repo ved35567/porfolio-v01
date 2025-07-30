@@ -17,7 +17,7 @@ const UpdateProfile = () => {
     // Get existing user profile
     const fetchProfile = async () => {
       try {
-        const res = await fetch("http://localhost:3000/upload/me", {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/upload/me`, {
           credentials: "include",
         });
         const data = await res.json();
@@ -57,7 +57,7 @@ const UpdateProfile = () => {
     if (imageFile) formData.append("profileImage", imageFile);
 
     try {
-      const res = await fetch("http://localhost:3000/upload/profile/update", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/upload/profile/update`, {
         method: "PUT",
         body: formData,
         credentials: "include",

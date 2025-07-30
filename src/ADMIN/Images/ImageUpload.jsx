@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-const API_UPLOAD_URL =import.meta.env.API_URL || "http://localhost:3000/image/upload";
+
 const MAX_FILES = 10;
 const MAX_FILE_SIZE_MB = 5;
 
@@ -55,7 +55,7 @@ function ImageUpload() {
     formData.append("category", category);
 
     try {
-      const response = await fetch(API_UPLOAD_URL, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/image/upload`, {
         method: "POST",
         body: formData,
       });
